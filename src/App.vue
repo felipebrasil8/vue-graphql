@@ -20,15 +20,20 @@
 </template>
 
 <script>
-  import "bootstrap/dist/css/bootstrap.css"
-  import "font-awesome/css/font-awesome.css"
-
 export default {
   name: 'app',
   data: function(){
     return  {
       prexs: ['pri', 'seg', 'ter']
     };
+  },
+  methods: {
+    novo() { 
+      this.prexs.push(...['qua']);
+    }
+  },
+  mounted() {
+    this.novo()
   }
 }
 </script>
@@ -38,3 +43,6 @@ export default {
     margin: 10%;
   }
 </style>
+
+<style src="bootstrap/dist/css/bootstrap.css"></style>
+<style src="font-awesome/css/font-awesome.css"></style>
