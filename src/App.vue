@@ -7,10 +7,15 @@
           <div class="card">
             <div class="card-body">
               <ul class="list-group">
-                <li class="list-group-item" v-for="prex in prexs" v-bind:key="prex">{{ prex }}</li>
+                <li class="list-group-item" v-for="(prex, index) in prexs" v-bind:key="index">{{ prex }}</li>
               </ul>
               <br>
-              <input type="text" name="prex" class="form-control" placeholder="Digite seu prefixo">
+              <div class="input-group">
+                <input class="form-control" type="text" v-model="prefix" @keyup.enter="addPrefix(prefix)" placeholder="Digite o prefixo"/>
+                <div class="input-group-append">
+                  <button class="btn btn-info" @click="addPrefix(prefix)"><span class="fa fa-plus"></span></button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -24,12 +29,17 @@ export default {
   name: 'app',
   data: function(){
     return  {
-      prexs: ['pri', 'seg', 'ter']
+      prexs: ['pri', 'seg', 'ter'],
+      prefix: ''
     };
   },
   methods: {
     novo() { 
-      this.prexs.push(...['qua']);
+      this.prexs.push(...['qua'])
+    },
+    addPrefix( prex ){
+      this.prexs.push(...[prex])
+      this.prefix = ''
     }
   },
   mounted() {
