@@ -1,0 +1,14 @@
+import gql from 'graphql-tag'
+
+export const COUNTRIES = gql`query countries {
+    country(code: "BR") {
+    name
+    native
+    emoji
+    currency
+    languages {
+      code
+      name
+    }
+  }
+}`

@@ -1,27 +1,28 @@
 <template>
-  <div id="app">
-    <main>
-      <div class="row">
-        <div class="col-md">
-          <h5>Prex <span class="badge badge-info">{{ prexs.length }}</span></h5>
-          <div class="card">
-            <div class="card-body">
-              <ul class="list-group">
-                <li class="list-group-item" v-for="(prex, index) in prexs" v-bind:key="index">{{ prex }}</li>
-              </ul>
-              <br>
-              <div class="input-group">
-                <input class="form-control" type="text" v-model="prefix" @keyup.enter="addPrefix(prefix)" placeholder="Digite o prefixo"/>
-                <div class="input-group-append">
-                  <button class="btn btn-info" @click="addPrefix(prefix)"><span class="fa fa-plus"></span></button>
-                </div>
+  <main>
+    <div class="row">
+      <div class="col-md">
+        <h5>Prex <span class="badge badge-info">{{ prexs.length }}</span></h5>
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item" v-for="(prex, index) in prexs" v-bind:key="index">{{ prex }}</li>
+            </ul>
+            <br>
+            <div class="input-group">
+              <input class="form-control" type="text" v-model="prefix" @keyup.enter="addPrefix(prefix)" placeholder="Digite o prefixo"/>
+              <div class="input-group-append">
+                <button class="btn btn-info" @click="addPrefix(prefix)"><span class="fa fa-plus"></span></button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </main>
-  </div>
+    </div>
+
+    <router-link to="/apollo">Go to Apollo</router-link>
+
+  </main>
 </template>
 
 <script>
