@@ -1,12 +1,22 @@
 <template>
-  <div>{{ countries }}</div>
+  <div>
+    <Menu></Menu>
+    <div id="main">
+      {{ countries }}
+    </div>
+  </div>
 </template>
 
 <script>
 import { COUNTRIES } from "../graphql/countries.query.gql"
 
+import Menu from "./Menu";
+
 export default {
   name: 'Apollo',
+  components: {
+    Menu
+  },
   data: function () {
     return {
       countries: '',
